@@ -25,7 +25,7 @@ li {
 	--dark-grey: #AAAAAA;
 	--dark: #342E37;
 	--red: #DB504A;
-	--yellow: #FFCE26;
+	--yellow: #cea007;
 	--light-yellow: #FFF2C6;
 	--orange: #FD7238;
 	--light-orange: #FFE0D3;
@@ -107,7 +107,7 @@ body {
 	background: var(--light);
 	display: flex;
 	align-items: center;
-	font-size: 25px;
+	font-size: 20px;
 	color: white;
 	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	white-space: nowrap;
@@ -374,7 +374,6 @@ body {
 
 
 
-
 #content main .table-data {
 	display: flex;
 	flex-wrap: wrap;
@@ -580,7 +579,7 @@ body {
 	background-color: #eeffff;
 	border:1px solid #4adbdb;
 }
-.New-C-form .adding-new-campaign a
+.New-C-form .adding-new-campaign .aadd_botton
 {
 	display: flex;
 	align-items: center;
@@ -588,8 +587,10 @@ body {
 	background-color: #4adbdb;
 	width: fit-content;
 	border-radius: 15px;
+	border-width: 0;
+	cursor: pointer;
 }
-.New-C-form .adding-new-campaign a p
+.New-C-form .adding-new-campaign .aadd_botton p
 {
 	padding: 5px;
 	color: white;
@@ -598,7 +599,7 @@ body {
 	padding-left: 30px;
 	padding-right: 30px
 }
-.New-C-form .adding-new-campaign a i
+.New-C-form .adding-new-campaign .aadd_botton i
 {
 	background-color: #349999;
 	padding: 5px;
@@ -617,14 +618,10 @@ body {
 
 
 
-.Body
-{
-	position: absolute;
-	bottom: 0px;
-	width: 100%;
-}
+
 #Share_content {
 	width: 100%;
+	height: 1000px;
 	background-image: linear-gradient(0deg, rgb(43, 220, 208), rgb(255, 255, 255));
 }
 #sidebar.hide ~ #Share_content {
@@ -644,8 +641,6 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	grid-gap: 16px;
-	flex-wrap: wrap;
 }
 #Share_content main .head-title .left
 {
@@ -693,6 +688,9 @@ body {
 
 
 
+
+
+
 #Share_content main .box-info {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -706,7 +704,7 @@ body {
 	border-radius: 20px;
 	display: flex;
 	align-items: center;
-	width: 350px;
+	width: 100%;
 	height: 150px;
 	grid-gap: 24px;
 	box-shadow: 2px 2px 5px 0px black;
@@ -721,14 +719,20 @@ body {
 	justify-content: center;
 	align-items: center;
 }
-#Share_content main .box-info li .text h3 {
-	font-size: 30px;
-	font-weight: 600;
+#Share_content main .box-info li .text{
+	width: 100%;
+}
+#contShare_contentent main .box-info li .text h3 {
+	font-size: 25px;
+	font-weight: 200;
 	color: var(--dark);
 }
-#Share_content main .box-info li .text p {
-	color: var(--dark);	
+#Share_content main .box-info li .text h2 {
+	font-size: 30px;
+	font-weight: 600;
+	color:#2acfcf;
 }
+
 
 
 
@@ -853,9 +857,9 @@ body {
 	background-color: #b5dbdb;
 	border-radius: 50px;
 }
-.progress .progress-bar 
+.progress .progress-bar
 {
-	width: 35%;
+	width:35%;
 	height: 100%;
 	background-color:#41c7c7;
 	border-radius: 50px;
@@ -866,4 +870,59 @@ body {
 	padding: 2px 0 2px 20px;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	font-weight: 900;
+}
+
+
+
+
+
+
+
+
+
+.table-data .order tr .status_of_paid 
+{
+	width: 250px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	justify-content: space-around;
+	position: relative;
+	left: 140px;
+}
+.table-data .order tr .status_of_paid .paid_button
+{
+	width: 80px;
+	background-image: linear-gradient(90deg, rgb(0, 151, 134), rgb(3, 200, 72));
+	border-radius: 50px;
+	border-width: 0px;
+	cursor: pointer;
+}
+.table-data .order tr .status_of_paid .paid_button p
+{
+	font-size: 20px;
+	border-radius: 50px; 
+	border-width: 0px;
+	font-weight: bolder;
+	color: white;
+	cursor: pointer;
+	text-decoration: none;
+}
+.table-data .order tr .status_of_paid .not_paid_button
+{
+	width: 120px;
+	background-image: linear-gradient(90deg, rgb(151, 0, 0), rgb(200, 124, 3));
+	border-radius: 50px;
+	border-width: 0px;
+	cursor: pointer;
+}
+.table-data .order tr .status_of_paid .not_paid_button p
+{
+	font-size: 20px;
+	border-radius: 50px;
+	border-width: 0px;
+	font-weight: bolder;
+	color: white;
+	cursor: pointer;
+	text-decoration: none;
 }

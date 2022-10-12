@@ -4,18 +4,17 @@ $user_email = $_SESSION['userEmail'];
 
 include '../inc/conn.php';
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="../Style/style.css">
-
 	<title>CPMS</title>
 </head>
 <body>
@@ -35,9 +34,10 @@ include '../inc/conn.php';
 			<div class="head-title">
 				<div class="left">
 					<i class='bx bxs-dollar-circle'></i>
-					<h1>All Campaigns</h1> 
+					<h1>My Campaigns</h1> 
 				</div>
 			</div>
+
 
 			<div class="table-data">
 				<div class="order">
@@ -52,42 +52,26 @@ include '../inc/conn.php';
 							</tr>
 						</thead>
 						<tbody>
+							<?php
+								$sql = "SELECT * FROM users WHERE EMAIL = '$user_email'";
+								$query = mysqli_query($conn, $sql);
+								$raw = mysqli_fetch_array($query);
+								$founder_n = $raw['F_NAME'];
+
+								$campaigns = "SELECT * FROM campaigns WHERE C_FOUNDER = '$founder_n' AND C_STATUS = 'IN PROCESS'";
+								$campaigns_query = mysqli_query($conn, $campaigns);
+
+								while($campaigns_row = mysqli_fetch_array($campaigns_query)):
+							?>
 							<tr>
-								<td><a href="Campaign_Page.html">John Doe</a></td>
-								<td>22000</td>
-								<td>15800</td>
-								<td><span class="status completed">Completed</span></td>
+								<td><a href="Campaign_Page.php?page= <?php echo $campaigns_row['ID'];?>"><?php echo $campaigns_row['C_NAME']; ?> Campaign</a></td>
+								<td><?php echo $campaigns_row['A_REQUIRED']; ?></td>
+								<td><?php echo $campaigns_row['A_PAID']; ?></td>
+								<td><span class="status process"><?php echo $campaigns_row['C_STATUS']; ?></span></td>
 							</tr>
-							<tr>
-								<td><a href="Campaign_Page.html">John Doe</a></td>
-								<td>15000</td>
-								<td>12200</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td><a href="Campaign_Page.html">John Doe</a></td>								
-								<td>2450</td>
-								<td>1250</td>
-								<td><span class="status process">Process</span></td>
-							</tr>
-							<tr>
-								<td><a href="Campaign_Page.html">John Doe</a></td>								
-								<td>10000</td>
-								<td>5000</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td><a href="Campaign_Page.html">John Doe</a></td>								
-								<td>7550</td>
-								<td>5850</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
+							<?php endwhile; ?>
 						</tbody>
 					</table>
-					<a href="" class="adding-campaign">
-						<i class='bx bx-plus'></i>
-						<p> Adding New Campaign</p>
-					</a>
 				</div>
 			</div>
 		</main>

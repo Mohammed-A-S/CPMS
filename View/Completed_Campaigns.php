@@ -1,3 +1,10 @@
+<?php
+session_start();
+$user_email = $_SESSION['userEmail'];
+
+include '../inc/conn.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,66 +20,14 @@
 </head>
 <body>
 	<!-- SIDEBAR -->
-	<section id="sidebar">
-		<a href="#" class="brand">
-			<i class='bx bx-command'></i>
-			<span class="text">CPMS</span>
-		</a>
-		<ul class="side-menu top">
-			<li>
-				<a href="Campaigns.html">
-					<i class='bx bxs-dollar-circle'></i>
-					<span class="text">My Campaigns</span>
-				</a>
-			</li>
-			<li>
-				<a href="New_Campaigns.html">
-					<i class='bx bx-plus-medical'></i>
-					<span class="text">Add Campaign</span>
-				</a>
-			</li>
-			<li>
-				<a href="Completed_Campaigns.html">
-					<i class='bx bxs-star'></i>
-					<span class="text">Completed</span>
-				</a>
-			</li>
-			<li>
-				<a href="Uncompleted_Campaigns.html">
-					<i class='bx bxs-star-half'></i>
-					<span class="text">Uncompleted</span>
-				</a>
-			</li>
-			<li>
-				<a href="All_Campaigns.html">
-					<i class='bx bxs-group' ></i>
-					<span class="text">All Campaigns</span>
-				</a>
-			</li>
-		</ul>
-		<ul class="side-menu">
-			<li>
-				<a href="#" class="logout">
-					<i class='bx bx-log-out'></i>
-					<span class="text">Logout</span>
-				</a>
-			</li>
-		</ul>
-	</section>
+	<?php include '../Config/sidebar-config.php'; ?>
 	<!-- SIDEBAR -->
 
-
-
+	
 	<!-- CONTENT -->
 	<section id="content">
 		<!-- NAVBAR -->
-		<nav>
-			<i class='bx bx-border-left' style="color: white; font-size: 30px;"></i>
-			<a href="#" class="Proflie">
-				<i class='bx bxs-user-circle' style="font-size: 40px; top: 0px; left: -50px; position: absolute;"></i>
-				<span>Khalid Sharahily</span> 
-			</a>
-		</nav>
+		<?php include '../Config/nav-config.php'; ?>
 		<!-- NAVBAR -->
 
 		<!-- MAIN -->
