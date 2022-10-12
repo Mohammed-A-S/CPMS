@@ -93,5 +93,4 @@ const a_paid = document.getElementsByClassName('A_PAID');
 if(a_required === a_paid)
 {
 	//change the background color
-	c_status.style.remove
 }
