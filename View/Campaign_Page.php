@@ -76,7 +76,7 @@ if(isset($_GET['page']))
 				</div>
 				<a href="Shearing_Link.php?share= <?php echo $c_id;?>" class="btn-download">
 					<i class='bx bxs-share'></i>
-					<span class="text">COPY SHARE LINK</span>
+					<span class="text">SHARE LINK</span>
 				</a>
 			</div>
 

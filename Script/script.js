@@ -79,3 +79,19 @@ switchMode.addEventListener('change', function () {
 		document.body.classList.remove('dark');
 	}
 })
+
+
+
+
+
+
+//for change the status of the campaign
+const c_status = document.getElementsByClassName('process');
+const a_required = document.getElementsByClassName('A_REQUIRED');
+const a_paid = document.getElementsByClassName('A_PAID');
+
+if(a_required === a_paid)
+{
+	//change the background color
+	c_status.style.remove
+}

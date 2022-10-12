@@ -65,8 +65,8 @@ include '../inc/conn.php';
 							?>
 							<tr>
 								<td><a href="Campaign_Page.php?page= <?php echo $campaigns_row['ID'];?>"><?php echo $campaigns_row['C_NAME']; ?> Campaign</a></td>
-								<td><?php echo $campaigns_row['A_REQUIRED']; ?></td>
-								<td><?php echo $campaigns_row['A_PAID']; ?></td>
+								<td><p class="A_REQUIRED"><?php echo $campaigns_row['A_REQUIRED'];?></p></td>
+								<td><p class="A_PAID"><?php echo $campaigns_row['A_PAID'];?></p></td>
 								<td><span class="status process"><?php echo $campaigns_row['C_STATUS']; ?></span></td>
 							</tr>
 							<?php endwhile; ?>
