@@ -23,7 +23,7 @@ $remain = $TOTAL - $PAID;
     <li>
         <i class='bx bxs-calendar-check' style="font-size: 70px; color: #4adbdb;"></i>
         <span class="text">
-            <h3><?php echo $remain;?> left of <?php echo $row9['A_REQUIRED'];?></h3>
+            <h3><?php echo $remain;?> Left of <?php echo $row9['A_REQUIRED'];?></h3>
             <div class="progress">
                 <div class="progress-bar" style="width: <?php echo $count;?>%;">
                     <p><?php echo $count;?>%</p>

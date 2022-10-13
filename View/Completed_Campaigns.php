@@ -4,6 +4,9 @@ $user_email = $_SESSION['userEmail'];
 
 include '../inc/conn.php';
 
+$sql = "SELECT * FROM campaigns WHERE C_STATUS = 'COMPLETED'";
+$sql_query = mysqli_query($conn, $sql);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,36 +54,14 @@ include '../inc/conn.php';
 							</tr>
 						</thead>
 						<tbody>
+							<?php while ($row = mysqli_fetch_array($sql_query)):?>
 							<tr>
-								<td><a href="Campaign_Page.html">John Doe</a></td>
-								<td>22000</td>
-								<td>22000</td>
-								<td><span class="status completed">Completed</span></td>
+								<td><a href="Campaign_Page.php?page= <?php echo $row['ID'];?>"><?php echo $row['C_NAME']; ?> Campaign</a></td>
+								<td><p class="A_REQUIRED"><?php echo $row['A_REQUIRED'];?></p></td>
+								<td><p class="A_PAID"><?php echo $row['A_PAID'];?></p></td>
+								<td><span class="status completed"><?php echo $row['C_STATUS']; ?></span></td>
 							</tr>
-							<tr>
-								<td><a href="Campaign_Page.html">John Doe</a></td>
-								<td>15000</td>
-								<td>15000</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-							<tr>
-								<td><a href="Campaign_Page.html">John Doe</a></td>								
-								<td>2450</td>
-								<td>2450</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-							<tr>
-								<td><a href="Campaign_Page.html">John Doe</a></td>								
-								<td>10000</td>
-								<td>10000</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-							<tr>
-								<td><a href="Campaign_Page.html">John Doe</a></td>								
-								<td>7550</td>
-								<td>7550</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
+							<?php endwhile;?>
 						</tbody>
 					</table>
 				</div>
