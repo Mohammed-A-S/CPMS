@@ -3,6 +3,9 @@ session_start();
 $user_email = $_SESSION['userEmail'];
 
 include '../inc/conn.php';
+
+$sql = "SELECT * FROM campaigns WHERE C_STATUS = 'CANCELED'";
+$sql_query = mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,36 +53,14 @@ include '../inc/conn.php';
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td><a href="Campaign_Page.html">John Doe</a></td>
-								<td>22000</td>
-								<td>15800</td>
-								<td><span class="status pending">Uncompleted</span></td>
-							</tr>
-							<tr>
-								<td><a href="Campaign_Page.html">John Doe</a></td>
-								<td>15000</td>
-								<td>12200</td>
-								<td><span class="status pending">Uncompleted</span></td>
-							</tr>
-							<tr>
-								<td><a href="Campaign_Page.html">John Doe</a></td>								
-								<td>2450</td>
-								<td>1250</td>
-								<td><span class="status pending">Uncompleted</span></td>
-							</tr>
-							<tr>
-								<td><a href="Campaign_Page.html">John Doe</a></td>								
-								<td>10000</td>
-								<td>5000</td>
-								<td><span class="status pending">Uncompleted</span></td>
-							</tr>
-							<tr>
-								<td><a href="Campaign_Page.html">John Doe</a></td>								
-								<td>7550</td>
-								<td>5850</td>
-								<td><span class="status pending">Uncompleted</span></td>
-							</tr>
+							<?php while ($row = mysqli_fetch_array($sql_query)):?>
+								<tr>
+									<td><a href="Campaign_Page.php?page= <?php echo $row['ID'];?>"><?php echo $row['C_NAME']; ?> Campaign</a></td>
+									<td><p class="A_REQUIRED"><?php echo $row['A_REQUIRED'];?></p></td>
+									<td><p class="A_PAID"><?php echo $row['A_PAID'];?></p></td>
+									<td><span class="status canceled"><?php echo $row['C_STATUS']; ?></span></td>
+								</tr>
+							<?php endwhile;?>
 						</tbody>
 					</table>
 				</div>

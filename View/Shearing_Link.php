@@ -8,12 +8,20 @@ if(isset($_GET['share']))
     $c_id = $_GET['share'];
     $show_campaigns = "SELECT * FROM campaigns WHERE ID = '$c_id'";
     $show_campaigns_query = mysqli_query($conn, $show_campaigns);
+	$row9 = mysqli_fetch_array($show_campaigns_query);
 
-    if($show_campaigns_query)
-    {
-		$row9 = mysqli_fetch_array($show_campaigns_query);
-    }
+	//if campaign is completed redirect the location 
+	if($row9['C_STATUS'] == 'COMPLETED')
+	{
+		header('location: thanks.php');
+	}
+	elseif($row9['C_STATUS'] == 'CANCELED')
+	{
+		header('location: Canceled.php');
+	}
 }
+
+
 
 if(isset($_POST['add_campaign']))
 {

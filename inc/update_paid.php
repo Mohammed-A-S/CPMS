@@ -88,3 +88,14 @@ if (isset($_GET['Not_Paid_Check']))
         header("location: ../View/Campaign_Page.php");
     }
 }
+
+
+if(isset($_GET['cancle']))
+{
+    $cancle = $_GET['cancle'];
+
+    $SQL = "UPDATE campaigns SET C_STATUS = 'CANCELED' WHERE ID = '$c_id'";
+    $SQL_query = mysqli_query($conn, $SQL);
+
+    header("location: ../View/Campaign_Page.php");
+}

@@ -114,6 +114,13 @@ if(isset($_GET['page']))
 							<?php endwhile; ?>
 						</tbody>
 					</table>
+					<br><br>
+					<a href="../inc/update_paid.php?cancle= <?php echo $c_id;?>" class="cancle-campaign">
+						<button class="cancle_botton"  name="cancle_campaign">
+							<i class='bx bx-plus'></i>
+							<p> Cancle The Campaign</p>
+						</button>
+					</a>
 				</div>
 			</div>
 		</main>

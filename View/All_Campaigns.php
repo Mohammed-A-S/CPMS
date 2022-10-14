@@ -84,10 +84,13 @@ include '../inc/conn.php';
 							</tr>
 						</tbody>
 					</table>
-					<a href="" class="adding-campaign">
-						<i class='bx bx-plus'></i>
-						<p> Adding New Campaign</p>
-					</a>
+					<br><br>
+						<div class="adding-new-campaign">
+							<button class="aadd_botton"  name="add_campaign">
+								<i class='bx bx-plus'></i>
+								<p> Adding New Campaign</p>
+							</button>
+						</div>
 				</div>
 			</div>
 		</main>

@@ -4,7 +4,13 @@ $user_email = $_SESSION['userEmail'];
 
 include '../inc/conn.php';
 
+$sql = "SELECT * FROM users WHERE EMAIL = '$user_email'";
+$query = mysqli_query($conn, $sql);
+$raw = mysqli_fetch_array($query);
+$founder_n = $raw['F_NAME'];
 
+$campaigns = "SELECT * FROM campaigns WHERE C_FOUNDER = '$founder_n' AND C_STATUS = 'IN PROCESS'";
+$campaigns_query = mysqli_query($conn, $campaigns);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,17 +58,7 @@ include '../inc/conn.php';
 							</tr>
 						</thead>
 						<tbody>
-							<?php
-								$sql = "SELECT * FROM users WHERE EMAIL = '$user_email'";
-								$query = mysqli_query($conn, $sql);
-								$raw = mysqli_fetch_array($query);
-								$founder_n = $raw['F_NAME'];
-
-								$campaigns = "SELECT * FROM campaigns WHERE C_FOUNDER = '$founder_n' AND C_STATUS = 'IN PROCESS'";
-								$campaigns_query = mysqli_query($conn, $campaigns);
-
-								while($campaigns_row = mysqli_fetch_array($campaigns_query)):
-							?>
+							<?php while($campaigns_row = mysqli_fetch_array($campaigns_query)):?>
 							<tr>
 								<td><a href="Campaign_Page.php?page= <?php echo $campaigns_row['ID'];?>"><?php echo $campaigns_row['C_NAME']; ?> Campaign</a></td>
 								<td><p class="A_REQUIRED"><?php echo $campaigns_row['A_REQUIRED'];?></p></td>
@@ -72,6 +68,10 @@ include '../inc/conn.php';
 							<?php endwhile; ?>
 						</tbody>
 					</table>
+					<a href="New_Campaigns.php" class="adding-campaign">
+						<i class='bx bx-plus'></i>
+						<p> Adding New Campaign</p>
+					</a>
 				</div>
 			</div>
 		</main>

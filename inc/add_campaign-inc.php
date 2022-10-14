@@ -17,8 +17,4 @@ if (isset($_POST['add_campaign']))
 	{
 		header ("location: All_Campaigns.php");
 	}
-	else
-	{
-		echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$$$$";
-	}
 }
