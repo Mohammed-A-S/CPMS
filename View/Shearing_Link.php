@@ -1,6 +1,4 @@
 <?php
-session_start();
-$c_id = $_SESSION['CamPAGE'];
 include '../inc/conn.php';
 
 if(isset($_GET['share']))

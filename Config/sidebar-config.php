@@ -29,12 +29,6 @@
 					<span class="text">Uncompleted</span>
 				</a>
 			</li>
-			<li>
-				<a href="All_Campaigns.php">
-					<i class='bx bxs-group' ></i>
-					<span class="text">All Campaigns</span>
-				</a>
-			</li>
 		</ul>
 		<ul class="side-menu">
 			<li>
