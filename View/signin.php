@@ -18,14 +18,15 @@ include '../Inc/login-inc.php';
             <div class="text">
                 Login
             </div>
+            <p style="color:red; margin-top:20px;"><?php echo $error; ?></p>
             <form action="../View/signin.php" method="POST">
                 <div class="data">
-                    <label>Email </label>
-                    <input type="text" name="Email" placeholder="Enter your username" required>
+                    <label>Email </label> 
+                    <input type="text" name="Email" placeholder="Enter your username" >
                 </div>
                 <div class="data">
                     <label>Password</label>
-                    <input type="password" name="Password" placeholder="Enter your password" required>
+                    <input type="password" name="Password" placeholder="Enter your password" >
                 </div>
                 <div class="forgot-pass">
                     <a href="#">Forgot Password?</a>

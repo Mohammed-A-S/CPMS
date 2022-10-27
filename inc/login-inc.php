@@ -1,4 +1,6 @@
 <?php
+$error="";
+
 if (isset($_POST['Submit']))
 {
     session_start();
@@ -17,6 +19,6 @@ if (isset($_POST['Submit']))
     }
     else
     {
-        echo 'INVALID EMAIL OR PASSWORD!';
+        $error = 'INVALID EMAIL OR PASSWORD!';
     }
 }

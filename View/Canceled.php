@@ -2,10 +2,15 @@
 session_start();
 $c_id = $_SESSION['CamPAGE'];
 include '../inc/conn.php';
+
 $show_campaigns = "SELECT * FROM campaigns WHERE ID = '$c_id'";
 $show_campaigns_query = mysqli_query($conn, $show_campaigns);
-
 $row9 = mysqli_fetch_array($show_campaigns_query);
+$founder_id = $row9['FOUNDER_ID'];
+
+$founder_name = "SELECT * FROM users WHERE ID='$founder_id'";
+$founder_name_query = mysqli_query($conn, $founder_name);
+$row3 = mysqli_fetch_array($founder_name_query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +36,7 @@ $row9 = mysqli_fetch_array($show_campaigns_query);
 					<h1><?php echo $row9['C_NAME'];?> Campaign</h1> 
 				</div>
 				<div class="left">
-					<h1><?php echo $row9['C_FOUNDER'];?></h1> 
+					<h1><?php echo $row3['F_NAME'];?></h1> 
 				</div>
 			</div>
 

@@ -7,6 +7,12 @@ if(isset($_GET['share']))
     $show_campaigns = "SELECT * FROM campaigns WHERE ID = '$c_id'";
     $show_campaigns_query = mysqli_query($conn, $show_campaigns);
 	$row9 = mysqli_fetch_array($show_campaigns_query);
+	$founder_id = $row9['FOUNDER_ID'];
+	$id_c = $row9['ID'];
+
+	$founder_name = "SELECT * FROM users WHERE ID='$founder_id'";
+	$founder_name_query = mysqli_query($conn, $founder_name);
+	$row3 = mysqli_fetch_array($founder_name_query);
 
 	//if campaign is completed redirect the location 
 	if($row9['C_STATUS'] == 'COMPLETED')
@@ -20,25 +26,25 @@ if(isset($_GET['share']))
 }
 
 
-
 if(isset($_POST['add_campaign']))
 {
 	$PFN = $_POST['P_F_N'];
     $PLN = $_POST['P_L_N'];
     $M2P = $_POST['M_2_P'];
+	$CID = $_POST['c_id'];
 
 	$add_participants = "INSERT INTO participants(F_NAME, L_NAME, M_TO_PAY, P_STATUS, C_ID)
-						VALUES ('$PFN', '$PLN', '$M2P', 'Not Paid', '$c_id')";
+						VALUES ('$PFN', '$PLN', '$M2P', 'Not Paid', '$CID')";
 	$add_participants_query = mysqli_query($conn, $add_participants);
 
-	$a_record = "SELECT * FROM campaigns WHERE ID = '$c_id'";
+	$a_record = "SELECT * FROM campaigns WHERE ID = '$CID'";
     $a_record_query = mysqli_query($conn, $a_record);
 	$a_record_fetch = mysqli_fetch_array($a_record_query);
 	$old_record = $a_record_fetch['A_RECORDED'];
 
 	$sum = $old_record + $M2P;
 
-	$add_campaigns = "UPDATE campaigns SET A_RECORDED = '$sum' WHERE ID = '$c_id'";
+	$add_campaigns = "UPDATE campaigns SET A_RECORDED = '$sum' WHERE ID = '$CID'";
 	$add_campaigns_query = mysqli_query($conn, $add_campaigns);
 
 	header("location: Thanks.php");
@@ -65,10 +71,10 @@ if(isset($_POST['add_campaign']))
 		<main>
 			<div class="head-title">
 				<div class="left">
-					<h1><?php echo $row9['C_NAME'];?> Campaign</h1> 
+					<h1><?php $id_c; echo $row9['C_NAME'];?> Campaign</h1> 
 				</div>
 				<div class="left">
-					<h1><?php echo $row9['C_FOUNDER'];?></h1> 
+					<h1><?php echo $row3['F_NAME'];?></h1> 
 				</div>
 			</div>
 
@@ -88,6 +94,8 @@ if(isset($_POST['add_campaign']))
 						<br>
 						<label for="">Amount To Pay</label>
 						<input type="text" name="M_2_P">
+
+						<input type="number" value="<?php echo $id_c;?>" name="c_id" style="display: none;">
 						<br>
 						<div class="adding-new-campaign" style="margin-right: 1%;">
 							<button class="aadd_botton"  name="add_campaign">

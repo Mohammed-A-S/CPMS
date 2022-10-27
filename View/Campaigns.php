@@ -1,16 +1,23 @@
 <?php
 session_start();
 $user_email = $_SESSION['userEmail'];
-
 include '../inc/conn.php';
 
-$sql = "SELECT * FROM users WHERE EMAIL = '$user_email'";
-$query = mysqli_query($conn, $sql);
-$raw = mysqli_fetch_array($query);
-$founder_n = $raw['F_NAME'];
+if(!isset($user_email))
+{
+	header('location: signin.php');
+}
+else
+{
+	$sql = "SELECT * FROM users WHERE EMAIL = '$user_email'";
+	$query = mysqli_query($conn, $sql);
+	$raw = mysqli_fetch_array($query);
+	$founder_id = $raw['ID'];
 
-$campaigns = "SELECT * FROM campaigns WHERE C_FOUNDER = '$founder_n' AND C_STATUS = 'IN PROCESS'";
-$campaigns_query = mysqli_query($conn, $campaigns);
+	$campaigns = "SELECT * FROM campaigns WHERE FOUNDER_ID = '$founder_id' AND C_STATUS = 'IN PROCESS'";
+	$campaigns_query = mysqli_query($conn, $campaigns);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,14 +47,14 @@ $campaigns_query = mysqli_query($conn, $campaigns);
 			<div class="head-title">
 				<div class="left">
 					<i class='bx bxs-dollar-circle'></i>
-					<h1>My Campaigns</h1> 
+					<h1>Campaigns</h1> 
 				</div>
 			</div>
 
 
 			<div class="table-data">
 				<div class="order">
-					<h3>All Campaigns</h3>
+					<h3>Campaigns</h3>
 					<table>
 						<thead>
 							<tr>

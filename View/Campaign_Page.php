@@ -5,41 +5,43 @@ $user_email = $_SESSION['userEmail'];
 $c_id = $_SESSION['CamPAGE'];
 
 
-include '../inc/conn.php';
+if(!isset($user_email))
+{
+	header('location: signin.php');
+}
+else
+{
+	include '../inc/conn.php';
 
 	$show_campaigns = "SELECT * FROM campaigns WHERE ID = '$c_id'";
     $show_campaigns_query = mysqli_query($conn, $show_campaigns);
+	$row9 = mysqli_fetch_array($show_campaigns_query);
+	$ID = $row9['ID'];
+	$C_F = $row9['C_FOUNDER'];
+	$C_N = $row9['C_NAME'];
+	$A_R = $row9['A_REQUIRED'];
+	$A_RC = $row9['A_RECORDED'];
+	$A_P = $row9['A_PAID'];
+	$C_S = $row9['C_STATUS'];
+	$C_M = $row9['C_MESSAGE'];
 
-    if($show_campaigns_query)
-    {
-		$row9 = mysqli_fetch_array($show_campaigns_query);
-        $ID = $row9['ID'];
-        $C_F = $row9['C_FOUNDER'];
-        $C_N = $row9['C_NAME'];
-        $A_R = $row9['A_REQUIRED'];
-        $A_RC = $row9['A_RECORDED'];
-        $A_P = $row9['A_PAID'];
-        $C_S = $row9['C_STATUS'];
-        $C_M = $row9['C_MESSAGE'];
+	if(isset($_GET['page']))
+	{
+		$_SESSION['CamPAGE'] = $_GET['page'];
+		$c_id = $_SESSION['CamPAGE'];
+		$show_campaigns = "SELECT * FROM campaigns WHERE ID = '$c_id'";
+		$show_campaigns_query = mysqli_query($conn, $show_campaigns);
+
+		if($show_campaigns_query)
+		{
+			//--------------------------------------------------------
+			$show_participants = "SELECT * FROM participants WHERE C_ID = '$c_id'";
+			$show_participants_query = mysqli_query($conn, $show_participants);
+		}
 	}
-
-if(isset($_GET['page']))
-{
-    $_SESSION['CamPAGE'] = $_GET['page'];
-	$c_id = $_SESSION['CamPAGE'];
-    $show_campaigns = "SELECT * FROM campaigns WHERE ID = '$c_id'";
-    $show_campaigns_query = mysqli_query($conn, $show_campaigns);
-
-    if($show_campaigns_query)
-    {
-		//--------------------------------------------------------
-		$show_participants = "SELECT * FROM participants WHERE C_ID = '$c_id'";
-		$show_participants_query = mysqli_query($conn, $show_participants);
-    }
-}
-
 	$show_participantss = "SELECT * FROM participants WHERE C_ID = '$c_id'";
     $show_participantss_query = mysqli_query($conn, $show_participantss); //it used in the while loop
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

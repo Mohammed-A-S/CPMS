@@ -4,8 +4,16 @@ $user_email = $_SESSION['userEmail'];
 
 include '../inc/conn.php';
 
-$sql = "SELECT * FROM campaigns WHERE C_STATUS = 'COMPLETED'";
-$sql_query = mysqli_query($conn, $sql);
+if(!isset($user_email))
+{
+	header('location: signin.php');
+}
+else
+{
+	$sql = "SELECT * FROM campaigns WHERE C_STATUS = 'COMPLETED'";
+	$sql_query = mysqli_query($conn, $sql);
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -43,7 +51,7 @@ $sql_query = mysqli_query($conn, $sql);
 
 			<div class="table-data">
 				<div class="order">
-					<h3>All Campaigns</h3>
+					<h3>Completed Campaigns</h3>
 					<table>
 						<thead>
 							<tr>

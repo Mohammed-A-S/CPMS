@@ -3,7 +3,15 @@ session_start();
 $user_email = $_SESSION['userEmail'];
 
 include '../inc/conn.php';
-include '../inc/add_campaign-inc.php';
+if(!isset($user_email))
+{
+	header('location: signin.php');
+}
+else
+{
+	include '../inc/add_campaign-inc.php';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +48,7 @@ include '../inc/add_campaign-inc.php';
 
 			<div class="table-data">
 				<div class="order">
-					<h3>All Campaigns</h3>
+					<h3>Add Campaign</h3>
 					<form class="New-C-form" action="New_campaigns.php" method="POST">
 						<label for="">Campaign Name</label>
 						<input type="text" name="campaign_name" required>
