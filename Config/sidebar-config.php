@@ -32,7 +32,7 @@
 		</ul>
 		<ul class="side-menu">
 			<li>
-				<a href="#" class="logout">
+				<a href="signup.php" class="logout" name="logout">
 					<i class='bx bx-log-out'></i>
 					<span class="text">Logout</span>
 				</a>

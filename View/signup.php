@@ -1,7 +1,11 @@
 <?php
 include '../inc/conn.php';
 include '../Inc/registration-inc.php';
-
+session_start();
+if(session_destroy())
+{
+    header('Locaation: signin.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +55,9 @@ include '../Inc/registration-inc.php';
                     <div class="inner"></div>
                     <input type="submit" name="Submit" value="Sign up">
                 </div>
+                <div class="signin">If you already have an account <a href="../View/signin.php">Sign in Now</a></div> 
             </div>
+            
             </form>
         </div>
     </body>

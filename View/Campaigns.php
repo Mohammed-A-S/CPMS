@@ -28,7 +28,7 @@ else
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="../Style/style.css">
-	<title>CPMS</title>
+	<title>Campaigns</title>
 </head>
 <body>
 	<!-- SIDEBAR -->

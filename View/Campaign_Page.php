@@ -56,7 +56,7 @@ else
 	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-	<title>CPMS</title>
+	<title>Campaign Page</title>
 </head>
 <body>
 	<!-- SIDEBAR -->
@@ -76,7 +76,7 @@ else
 				<div class="left">
 					<h1><?php echo $C_N;?> Campaign</h1> 
 				</div>
-				<a href="Shearing_Link.php?share= <?php echo $c_id;?>" class="btn-download">
+				<a href="Shearing_Link.php?share= <?php echo $c_id;?>" class="btn-download" target="_blank">
 					<i class='bx bxs-share'></i>
 					<span class="text">SHARE LINK</span>
 				</a>

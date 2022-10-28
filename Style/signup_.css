@@ -98,6 +98,21 @@ form .form-row .textarea{
 .textarea textarea:valid ~ .underline:before{
     transform: scale(1);
 }
+.signin
+{
+    position: relative;
+    top: 10px;
+}
+.signin a
+{
+    text-decoration: none;
+    color: #3498db;
+}
+.submit-btn
+{
+    justify-content: space-between;
+    position: relative;
+}
 .submit-btn .input-data{
     overflow: hidden;
     height: 45px!important;

@@ -15,6 +15,6 @@ if (isset($_POST['add_campaign']))
 	
 	if($campaign_query)
 	{
-		header ("location: All_Campaigns.php");
+		header ("location: Campaigns.php");
 	}
 }

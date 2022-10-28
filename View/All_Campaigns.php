@@ -16,7 +16,7 @@ include '../inc/conn.php';
 	<!-- My CSS -->
 	<link rel="stylesheet" href="../Style/style.css">
 
-	<title>CPMS</title>
+	<title>All Campaigns</title>
 </head>
 <body>
 	<!-- SIDEBAR -->

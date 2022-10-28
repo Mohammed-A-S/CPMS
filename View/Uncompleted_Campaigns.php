@@ -27,7 +27,7 @@ else
 	<!-- My CSS -->
 	<link rel="stylesheet" href="../Style/style.css">
 
-	<title>CPMS</title>
+	<title>Uncompleted Campaings</title>
 </head>
 <body>
 	<!-- SIDEBAR -->
