@@ -29,7 +29,7 @@ include '../Inc/login-inc.php';
                     <input type="password" name="Password" placeholder="Enter your password" >
                 </div>
                 <div class="forgot-pass">
-                    <a href="#">Forgot Password?</a>
+                    <a href="forgotPass.php">Forgot Password?</a>
                 </div>
                 <div class="btn">
                     <div class="inner"></div>

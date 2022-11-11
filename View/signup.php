@@ -44,7 +44,7 @@ if(session_destroy())
                     <label for="">Email</label>
                 </div>
                 <div class="input-data">
-                    <input type="text" name="Password" required>
+                    <input type="password" name="Password" required>
                     <div class="underline"></div>
                     <label for="">Password</label>
                 </div>

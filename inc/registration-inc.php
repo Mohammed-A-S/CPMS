@@ -5,7 +5,7 @@ if (isset($_POST['Submit']))
     $MN = $_POST['middleName'];
     $LN = $_POST['lastName'];
     $EM = $_POST['Email'];
-    $PA = $_POST['Password'];
+    $PA = md5($_POST['Password']);
     
     $user_register_query = "SELECT EMAIL FROM users WHERE EMAIL='$EM'";
     $user_register_result = mysqli_query($conn, $user_register_query);
@@ -18,7 +18,9 @@ if (isset($_POST['Submit']))
     else
     {
         $sql = "INSERT INTO users(F_NAME, M_NAME, L_NAME, EMAIL, PWD)
-            VALUES ('$FN', '$MN', '$LN', '$EM', '$PA')";
+                VALUES ('$FN', '$MN', '$LN', '$EM', '$PA')";
         $RESULT = mysqli_query($conn, $sql);
+
+        header('Location: signin.php');
     }
 }
